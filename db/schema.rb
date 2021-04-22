@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_22_202517) do
+ActiveRecord::Schema.define(version: 2021_04_22_204220) do
 
   create_table "action_text_rich_texts", force: :cascade do |t|
     t.string "name", null: false
@@ -109,6 +109,12 @@ ActiveRecord::Schema.define(version: 2021_04_22_202517) do
     t.integer "region_id"
     t.index ["region_id"], name: "index_user_regions_on_region_id"
     t.index ["user_id"], name: "index_user_regions_on_user_id"
+  end
+
+  create_table "user_roles", force: :cascade do |t|
+    t.string "role_name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "users", force: :cascade do |t|
