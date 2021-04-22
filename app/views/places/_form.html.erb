@@ -1,0 +1,25 @@
+<%= form_with(model: place) do |form| %>
+  <% if place.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(place.errors.count, "error") %> prohibited this place from being saved:</h2>
+
+      <ul>
+        <% place.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :place_name %>
+    <%= form.text_field :place_name %>
+  </div>
+   <div class="field">
+    <%= form.label :Company %><br />
+    <!--%= form.collection_select :company_name, @Company,:id,%!-->
+  </div>
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

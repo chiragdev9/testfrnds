@@ -14,6 +14,17 @@
 
   <body>
   <%= render 'home/header'%>
-    <%= yield %>
+  <br>
+  <div class="container">
+    <div class="row justify-content-md-center">
+      <div class="col col-lg-7">
+        <div class="card">
+          <div class="card-body">
+            <%= yield %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
   </body>
 </html>
