@@ -1,9 +1,10 @@
 <p id="notice"><%= notice %></p>
-
-<h1>Companies</h1>
-
-<table>
-  <thead>
+<div class="card">
+  <h5 class="card-header">Companies</h5>
+  <div class="card-body">
+<div class="table-responsive">
+<table class="table table-sm table-striped">
+  <thead class="table-dark">
     <tr>
       <th>Name</th>
       <th>Country</th>
@@ -16,7 +17,7 @@
     </tr>
   </thead>
 
-  <tbody>
+  <tbody >
     <% @companies.each do |company| %>
       <tr>
         <td><%= company.name %></td>
@@ -26,14 +27,17 @@
         <td><%= company.postcode %></td>
         <td><%= company.start_date %></td>
         <td><%= company.active %></td>
-        <td><%= link_to 'Show', company %></td>
-        <td><%= link_to 'Edit', edit_company_path(company) %></td>
-        <td><%= link_to 'Destroy', company, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', company, class:"btn btn-sm btn-dark" %></td>
+        <td><%= link_to 'Edit', edit_company_path(company) ,class:"btn btn-sm btn-dark"%></td>
+        <td><%= link_to 'Destroy', company, method: :delete, data: { confirm: 'Are you sure?' },class:"btn btn-sm btn-danger" %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
+</div>
 <br>
 
-<%= link_to 'New Company', new_company_path %>
+<%= link_to 'New Company', new_company_path, class:"btn btn-dark" %>
+  </div>
+</div>
+<h1>Companies</h1>
