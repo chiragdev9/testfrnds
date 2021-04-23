@@ -1,57 +1,60 @@
 <p id="notice"><%= notice %></p>
+<div>
+  <div class="card-body">
+      <p class="card-text">
+        <strong>Email:</strong>
+        <%= @user.email %>
+      </p>
 
-<p>
-  <strong>Email:</strong>
-  <%= @user.email %>
-</p>
+      <p class="card-text">
+        <strong>First name:</strong>
+        <%= @user.first_name %>
+      </p>
 
-<p>
-  <strong>First name:</strong>
-  <%= @user.first_name %>
-</p>
+      <p class="card-text">
+        <strong>Last name:</strong>
+        <%= @user.last_name %>
+      </p>
 
-<p>
-  <strong>Last name:</strong>
-  <%= @user.last_name %>
-</p>
+      <p class="card-text">
+        <strong>Company:</strong>
+        <%= @user.company_id %>
+      </p>
 
-<p>
-  <strong>Company:</strong>
-  <%= @user.company_id %>
-</p>
+      <p class="card-text">
+        <strong>Role:</strong>
+        <%= @user.role_id %>
+      </p>
 
-<p>
-  <strong>Role:</strong>
-  <%= @user.role_id %>
-</p>
+      <p class="card-text">
+        <strong>Start date:</strong>
+        <%= @user.start_date %>
+      </p>
 
-<p>
-  <strong>Start date:</strong>
-  <%= @user.start_date %>
-</p>
+      <p class="card-text">
+        <strong>End date:</strong>
+        <%= @user.end_date %>
+      </p>
 
-<p>
-  <strong>End date:</strong>
-  <%= @user.end_date %>
-</p>
+      <p class="card-text">
+        <strong>Monthly charge:</strong>
+        <%= @user.monthly_charge %>
+      </p>
 
-<p>
-  <strong>Monthly charge:</strong>
-  <%= @user.monthly_charge %>
-</p>
+      <div style="width:200px; height:auto">
+        <%= image_tag(@user.image, style:"width:100%") %>
+      </div>
 
-<div style="width:200px; height:auto">
-  <%= image_tag(@user.image, style:"width:100%") %>
-</div>
+      <p class="card-text">
+        <strong>Active:</strong>
+        <%= @user.active %>
+      </p>
 
-<p>
-  <strong>Active:</strong>
-  <%= @user.active %>
-</p>
+      <div class="container">
+        <%= @user.notes %>
+      </div>
 
-<div class="container">
-  <%= @user.notes %>
-</div>
-
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+      <%= link_to 'Edit', edit_user_path(@user),class:"btn btn-dark" %>
+      <%= link_to 'Back', users_path,class:"btn btn-dark" %>
+  </div>
+ </div> 
