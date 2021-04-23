@@ -22,6 +22,7 @@ gem 'jbuilder', '~> 2.7'
 
 # Use Active Storage variant
 gem 'devise', '~> 4.7', '>= 4.7.3'
+gem 'pundit', '~> 2.1'
 gem 'image_processing', '~> 1.12', '>= 1.12.1'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
