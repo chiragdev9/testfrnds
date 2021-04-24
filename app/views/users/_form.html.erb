@@ -38,12 +38,12 @@
 
       <div class="field form-group">
         <%= form.label :start_date %>
-        <%= form.datetime_select :start_date %>
+        <%= form.text_field  :start_date, class: 'flatpickr' %>
       </div>
 
       <div class="field form-group">
         <%= form.label :end_date %>
-        <%= form.datetime_select :end_date %>
+        <%= form.text_field  :end_date , class: 'flatpickr'%>
       </div>
 
       <div class="field form-group">

@@ -7,10 +7,19 @@ import Rails from "@rails/ujs"
 import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
+import "bootstrap"
+import flatpickr from "flatpickr"
 
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
 
+document.addEventListener("turbolinks:load", () => {
+    $('[data-tooltip-display="true"]').tooltip(),
+        flatpickr("[class='flatpickr']", {})
+    })
 require("trix")
 require("@rails/actiontext")
+
+//stylesheets
+require("../styles/application.scss")

@@ -1,58 +1,86 @@
 <%= form_with(model: company) do |form| %>
-  <% if company.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(company.errors.count, "error") %> prohibited this company from being saved:</h2>
+<% if company.errors.any? %>
+<div id="error_explanation">
+    <h2><%= pluralize(company.errors.count, "error") %> prohibited this company from being saved:</h2>
 
-      <ul>
+    <ul>
         <% company.errors.each do |error| %>
-          <li><%= error.full_message %></li>
+        <li><%= error.full_message %></li>
         <% end %>
-      </ul>
+    </ul>
+</div>
+<% end %>
+
+<div class="card-body">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm col-lg-8">
+                <div class="field form-group">
+                    <%= form.label "Company Name"%>
+                    <%= form.text_field :name ,class:"form-control"%>
+                </div>
+            </div>
+        </div>
+        <!--Company name column !-->
+        <div class="row">
+            <div class="col-sm">
+                <div class="field form-group">
+                    <%= form.label :country_id %>
+                    <%= form.number_field :country_id ,class:"form-control" %>
+                </div>
+            </div>
+
+            <div class="col-sm">
+                <div class="field form-group">
+                    <%= form.label :state_id %>
+                    <%= form.number_field :state_id ,class:"form-control" %>
+                </div>
+            </div>
+            <div class="col-sm">
+                <div class="field form-group">
+                    <%= form.label :city_id %>
+                    <%= form.number_field :city_id ,class:"form-control" %>
+                </div>
+            </div>
+        </div>
+        <!--Country State city dynamic collection select group column !-->
+        <div class="row">
+            <div class="col-sm ">
+                <div class="field form-group">
+                    <%= form.label :postcode %>
+                    <%= form.text_field :postcode ,class:"form-control" %>
+                </div>
+            </div>
+            <div class="col-sm ">
+                <div class="field form-group">
+                    <%= form.label :start_date %>
+                    <%= form.text_field :start_date , class: 'flatpickr'  %>
+                </div>
+            </div>
+            <div class="col-sm ">
+                <div class="field form-check">
+                    <%= form.check_box :active , class:"form-check-input"  %>
+                    <%= form.label :active, class:"form-check-label" %>
+                </div>
+            </div>
+        </div>
+        <!--Postal code, start date and active check box column !-->
+        <div class="row justify-content-end">
+            <div class="col-sm col-lg-2 ">
+                <div class="actions form-group">
+                    <br />
+                    <%= link_to 'Cancel', companies_path ,class:"btn btn-dark form-control" %>
+                </div>
+            </div>
+            <div class="col-sm col-lg-2">
+                <div class="actions form-group">
+                    <br />
+                    <%= form.submit "Save",class:'btn btn-dark form-control'%>
+                </div>
+            </div>
+        </div>
+        <!-- save button !-->
     </div>
-  <% end %>
-
-  <div>
-    <div class="card-body">
-          <div class="field form-group">
-              <%= form.label :name %>
-              <%= form.text_field :name ,class:"form-control"%>
-          </div>
-
-          <div class="field form-group">
-            <%= form.label :country_id %>
-            <%= form.number_field :country_id ,class:"form-control" %>
-          </div>
-
-          <div class="field form-group">
-            <%= form.label :state_id %>
-            <%= form.number_field :state_id ,class:"form-control" %>
-          </div>
-
-          <div class="field form-group">
-            <%= form.label :city_id %>
-            <%= form.number_field :city_id ,class:"form-control" %>
-          </div>
-
-          <div class="field form-group">
-            <%= form.label :postcode %>
-            <%= form.text_field :postcode ,class:"form-control" %>
-          </div>
-          <br/>
-          <div class="field form-group">
-            <%= form.label :start_date %>
-            <%= form.datetime_select :start_date  %>
-          </div>
-
-          <div class="field form-group">
-            <%= form.label :active %>
-            <%= form.check_box :active  %>
-          </div>
-
-          <div class="actions">
-            <%= form.submit class:'btn btn-dark'%>
-          </div>
-
-      </div>
-    </div>
-  </div>    
+    <!-- Main Container body!-->
+</div>
 <% end %>
