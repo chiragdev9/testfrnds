@@ -22,4 +22,4 @@ require("trix")
 require("@rails/actiontext")
 
 //stylesheets
-require("application.scss")
+require("../styles/application.scss")
