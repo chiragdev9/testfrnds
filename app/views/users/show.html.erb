@@ -1,62 +1,100 @@
-<div>
-  <div class="card-body">
-      <p class="card-text">
-        <strong>Email:</strong>
-        <%= @user.email %>
-      </p>
+<div class="container">
+    <div class="card-body">
+        <div class="row">
+            <div class="col-sm">
+                <p class="card-text">
+                    <strong>First name:</strong>
+                    <%= @user.first_name %>
+                </p>
+            </div>
+            <div class="col-sm">
+                <p class="card-text">
+                    <strong>Last name:</strong>
+                    <%= @user.last_name %>
+                </p>
+            </div>
+            <div class="col-sm">
+                <p class="card-text">
+                    <strong>Email:</strong>
+                    <%= @user.email %>
+                </p>
+            </div>
+        </div>
+        <!--First name Last name Email row!-->
+        <div class="row">
+            <div class="col-sm">
+                <p class="card-text">
+                    <strong>Company:</strong>
+                    <%= @user.company_id %>
+                </p>
 
-      <p class="card-text">
-        <strong>First name:</strong>
-        <%= @user.first_name %>
-      </p>
-
-      <p class="card-text">
-        <strong>Last name:</strong>
-        <%= @user.last_name %>
-      </p>
-
-      <p class="card-text">
-        <strong>Company:</strong>
-        <%= @user.company_id %>
-      </p>
-
-      <p class="card-text">
-        <strong>Role:</strong>
-        <%= @user.role_id %>
-      </p>
-
-      <p class="card-text">
-        <strong>Start date:</strong>
-        <%= @user.start_date %>
-      </p>
-
-      <p class="card-text">
-        <strong>End date:</strong>
-        <%= @user.end_date %>
-      </p>
-
-      <p class="card-text">
-        <strong>Monthly charge:</strong>
-        <%= @user.monthly_charge %>
-      </p>
-
-      <div style="width:200px; height:auto">
-        <%= image_tag(@user.image, style:"width:100%") %>
-      </div>
-
-      <p class="card-text">
-        <strong>Active:</strong>
-        <%= @user.active %>
-      </p>
-
-      <div class="container ">
-        <p class="card-text">
-          <strong>Notes:</strong>
-          <%= @user.notes %>
-        </p>
-      </div>
-
-      <%= link_to 'Edit', edit_user_path(@user),class:"btn btn-dark" %>
-      <%= link_to 'Back', users_path,class:"btn btn-dark" %>
-  </div>
- </div> 
+            </div>
+            <div class="col-sm">
+                <p class="card-text">
+                    <strong>Monthly charge:</strong>
+                    <%= @user.monthly_charge %>
+                </p>
+            </div>
+        </div>
+    </div>
+    <!--Company list and money charge row!-->
+    <div class="row">
+        <div class="col-sm">
+            <p class="card-text">
+                <strong>Role:</strong>
+                <%= @user.role_id %>
+            </p>
+        </div>
+    </div>
+    <!--User roles list row!-->
+    <div class="row">
+        <div class="col-sm">
+            <p class="card-text">
+                <strong>Start date:</strong>
+                <%= @user.start_date %>
+            </p>
+        </div>
+        <div class="col-sm">
+            <p class="card-text">
+                <strong>End date:</strong>
+                <%= @user.end_date %>
+            </p>
+        </div>
+        <div class="col-sm">
+            <p class="card-text">
+                <strong>Active:</strong>
+                <%= @user.active %>
+            </p>
+        </div>
+    </div>
+    <!--Start date end date active row!-->
+    <div class="row">
+        <div class="col-sm">
+            <div style="width:200px; height:auto">
+                <%= image_tag(@user.image, style:"width:100%") %>
+            </div>
+        </div>
+    </div>
+    <!--Image row!-->
+    <div class="row">
+        <div class="col-sm">
+            <div class="container ">
+                <p class="card-text">
+                    <strong>Notes:</strong>
+                    <%= @user.notes %>
+                </p>
+            </div>
+        </div>
+        <!--Rich Text area!-->
+        <div class="container">
+            <div class="row justify-content-end">
+                <div class="col col-lg-1">
+                    <%= link_to 'Edit', edit_user_path(@user),class:"btn btn-dark" %>
+                </div>
+                <div class="col col-lg-3">
+                    <%= link_to 'Back', users_path, class:"btn btn-dark" %>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
