@@ -83,14 +83,16 @@
         </div>
         <!-- Start date end date active row!-->
         <div class="row">
-            <div class="field form-group">
-                <% if user.image.attached? %>
-                <div style="width:20px; height:auto">
-                    <%= image_tag(@user.image, style:"width:10px, display:block") %>
+            <div class="col-sm col-lg-6">
+                <div class="field form-group">
+                    <% if user.image.attached? %>
+                    <div style="width:180px; height:auto">
+                        <%= image_tag(@user.image, class:"img-thumbnail") %>
+                    </div>
+                    <% end %>
+                    <!--%= form.label :image %!-->
+                    <%= form.file_field :image ,id:"formfile",class:"form-control"%>
                 </div>
-                <% end %>
-                <!--%= form.label :image %!-->
-                <%= form.file_field :image ,id:"formfile",class:"form-control"%>
             </div>
         </div>
         <!-- Image row!-->

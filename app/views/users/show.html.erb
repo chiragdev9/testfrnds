@@ -27,7 +27,6 @@
                     <strong>Company:</strong>
                     <%= @user.company_id %>
                 </p>
-
             </div>
             <div class="col-sm">
                 <p class="card-text">
@@ -36,65 +35,65 @@
                 </p>
             </div>
         </div>
-    </div>
-    <!--Company list and money charge row!-->
-    <div class="row">
-        <div class="col-sm">
-            <p class="card-text">
-                <strong>Role:</strong>
-                <%= @user.role_id %>
-            </p>
-        </div>
-    </div>
-    <!--User roles list row!-->
-    <div class="row">
-        <div class="col-sm">
-            <p class="card-text">
-                <strong>Start date:</strong>
-                <%= @user.start_date %>
-            </p>
-        </div>
-        <div class="col-sm">
-            <p class="card-text">
-                <strong>End date:</strong>
-                <%= @user.end_date %>
-            </p>
-        </div>
-        <div class="col-sm">
-            <p class="card-text">
-                <strong>Active:</strong>
-                <%= @user.active %>
-            </p>
-        </div>
-    </div>
-    <!--Start date end date active row!-->
-    <div class="row">
-        <div class="col-sm">
-            <div style="width:200px; height:auto">
-                <%= image_tag(@user.image, style:"width:100%") %>
-            </div>
-        </div>
-    </div>
-    <!--Image row!-->
-    <div class="row">
-        <div class="col-sm">
-            <div class="container ">
+        <!--Company list and money charge row!-->
+        <div class="row">
+            <div class="col-sm">
                 <p class="card-text">
-                    <strong>Notes:</strong>
-                    <%= @user.notes %>
+                    <strong>Role:</strong>
+                    <%= @user.role_id %>
                 </p>
             </div>
         </div>
-        <!--Rich Text area!-->
-        <div class="container">
-            <div class="row justify-content-end">
-                <div class="col col-lg-1">
-                    <%= link_to 'Edit', edit_user_path(@user),class:"btn btn-dark" %>
+        <!--User roles list row!-->
+        <div class="row">
+            <div class="col-sm">
+                <p class="card-text">
+                    <strong>Start date:</strong>
+                    <%= @user.start_date %>
+                </p>
+            </div>
+            <div class="col-sm">
+                <p class="card-text">
+                    <strong>End date:</strong>
+                    <%= @user.end_date %>
+                </p>
+            </div>
+            <div class="col-sm">
+                <p class="card-text">
+                    <strong>Active:</strong>
+                    <%= @user.active %>
+                </p>
+            </div>
+        </div>
+        <!--Start date end date active row!-->
+        <div class="row">
+            <div class="col-sm">
+                <div style="width:200px; height:auto">
+                    <%= image_tag(@user.image, class:"img-thumbnail",style:"width:100%") %>
                 </div>
-                <div class="col col-lg-3">
-                    <%= link_to 'Back', users_path, class:"btn btn-dark" %>
+            </div>
+        </div>
+        <!--Image row!-->
+        <div class="row">
+            <div class="col-sm">
+                <div class="container ">
+                    <p class="card-text">
+                        <strong>Notes:</strong>
+                        <%= @user.notes %>
+                    </p>
+                </div>
+            </div>
+            <!--Rich Text area!-->
+            <div class="container">
+                <div class="row justify-content-end">
+                    <div class="col col-lg-1">
+                        <%= link_to 'Edit', edit_user_path(@user),class:"btn btn-dark" %>
+                    </div>
+                    <div class="col col-lg-3">
+                        <%= link_to 'Back', users_path, class:"btn btn-dark" %>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
+  </div>
