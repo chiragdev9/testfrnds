@@ -1,74 +1,113 @@
 <%= form_with(model: user) do |form| %>
-  <% if user.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
+<% if user.errors.any? %>
+<div id="error_explanation">
+    <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
 
-      <ul>
+    <ul>
         <% user.errors.each do |error| %>
-          <li><%= error.full_message %></li>
+        <li><%= error.full_message %></li>
         <% end %>
-      </ul>
+    </ul>
+</div>
+<% end %>
+
+<div class="card-body">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-sm">
+                <div class="field form-group">
+                    <%= form.label :first_name %>
+                    <%= form.text_field :first_name ,class:"form-control" %>
+                </div>
+            </div>
+
+            <div class="col-sm">
+                <div class="field form-group">
+                    <%= form.label :last_name %>
+                    <%= form.text_field :last_name ,class:"form-control" %>
+                </div>
+            </div>
+
+            <div class="col-sm">
+                <div class="field form-group">
+                    <%= form.label :email %>
+                    <%= form.text_field :email ,class:"form-control" %>
+                </div>
+            </div>
+        </div>
+        <!--First name Last name Email row !-->
+        <div class="row">
+            <div class="col-sm col-lg-8">
+                <div class="field form-group">
+                    <%= form.label :company_id %>
+                    <%= form.number_field :company_id ,class:"form-control" %>
+                </div>
+            </div>
+            <div class="col-sm">
+                <%= form.label :monthly_charge %>
+                <div class="input-group mb-3">
+                    <span class="input-group-text">$</span>
+                    <%= form.text_field :monthly_charge ,class:"form-control" %>
+                    <span class="input-group-text">.00</span>
+                </div>
+            </div>
+        </div>
+        <!-- Company list and money charge row !-->
+        <div class="row">
+            <div class="col-sm col-lg-8">
+                <div class="field form-group">
+                    <%= form.label :role_id %>
+                    <%= form.number_field :role_id ,class:"form-control" %>
+                </div>
+            </div>
+        </div>
+        <!-- User roles list row!-->
+        <div class="row ">
+            <div class="col-sm col-lg-2">
+                <%= form.label :start_date %>
+                <%= form.text_field  :start_date, class: 'flatpickr' %>
+            </div>
+            <div class="col-sm col-lg-1"></div>
+            <div class="col-sm col-lg-2">
+                <%= form.label :end_date %>
+                <%= form.text_field  :end_date , class: 'flatpickr' %>
+            </div>
+
+            <div class="col-sm col-lg-2">
+                <div class="field form-check">
+                    <%= form.check_box :active , class:"form-check-input"  %>
+                    <%= form.label :active, class:"form-check-label" %>
+                </div>
+            </div>
+        </div>
+        <!-- Start date end date active row!-->
+        <div class="row">
+
+            <div class="field form-group">
+                <% if user.image.attached? %>
+                <div style="width:20px; height:auto">
+                    <%= image_tag(@user.image, style:"width:10px, display:block") %>
+                </div>
+                <% end %>
+                <!--%= form.label :image %!-->
+                <%= form.file_field :image ,id:"formfile",class:"form-control"%>
+            </div>
+        </div>
+        <!-- Image row!-->
+        <div class="row">
+            <div class="field form-group">
+                <%= form.label :notes %>
+                <%= form.rich_text_area :notes %>
+            </div>
+        </div>
+        <!--Rich Text area!-->
+        <br />
+        <div class="actions">
+            <%= form.submit class:'btn btn-dark' %>
+        </div>
+        <!--container !-->
     </div>
-  <% end %>
-  <div>
-    <div class="card-body">
-      <div class="field form-group">
-        <%= form.label :email %>
-        <%= form.text_field :email ,class:"form-control" %>
-      </div>
-      <div class="field form-group">
-        <%= form.label :first_name %>
-        <%= form.text_field :first_name ,class:"form-control" %>
-      </div>
-
-      <div class="field form-group">
-        <%= form.label :last_name %>
-        <%= form.text_field :last_name ,class:"form-control" %>
-      </div>
-
-      <div class="field form-group">
-        <%= form.label :company_id %>
-        <%= form.number_field :company_id %>
-      </div>
-
-      <div class="field form-group">
-        <%= form.label :role_id %>
-        <%= form.number_field :role_id %>
-      </div>
-
-      <div class="field form-group">
-        <%= form.label :start_date %>
-        <%= form.text_field  :start_date, class: 'flatpickr' %>
-      </div>
-
-      <div class="field form-group">
-        <%= form.label :end_date %>
-        <%= form.text_field  :end_date , class: 'flatpickr'%>
-      </div>
-
-      <div class="field form-group">
-        <%= form.label :monthly_charge %>
-        <%= form.text_field :monthly_charge %>
-      </div>
-
-      <div class="field form-group">
-        <%= form.label :image %>
-        <%= form.file_field :image ,id:"formfile",class:"form-control"%>
-      </div>
-
-      <div class="field form-group">
-        <%= form.label :active %>
-        <%= form.check_box :active %>
-      </div>
-
-      <div class="field form-group">
-        <%= form.label :notes %>
-        <%= form.rich_text_area :notes %>
-      </div>
-      <br/>
-      <div class="actions">
-        <%= form.submit class:'btn btn-dark' %>
-      </div>
-    </div>
-  </div>  
+</div>
+</div>
 <% end %>
