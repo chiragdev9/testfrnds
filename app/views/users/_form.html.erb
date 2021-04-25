@@ -41,7 +41,8 @@
             <div class="col-sm col-lg-8">
                 <div class="field form-group">
                     <%= form.label :company_id %>
-                    <%= form.number_field :company_id ,class:"form-control" %>
+                    <%= collection_select( :company_name, :company_id, Company.all, :id, :name, {:prompt=>true},{:class=>"form-select"})%>
+                    <!--%= form.number_field :company_id ,class:"form-control" %!-->
                 </div>
             </div>
             <div class="col-sm">
@@ -58,7 +59,8 @@
             <div class="col-sm col-lg-8">
                 <div class="field form-group">
                     <%= form.label :role_id %>
-                    <%= form.number_field :role_id ,class:"form-control" %>
+                    <%= collection_select( :role_name, :role_id, UserRole.all, :id, :role_name, {:prompt=>true},{:class=>"form-select"})%>
+                    <!--%= form.number_field :role_id ,class:"form-control" %!-->
                 </div>
             </div>
         </div>
