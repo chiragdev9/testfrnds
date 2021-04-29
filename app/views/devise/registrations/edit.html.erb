@@ -1,43 +1,144 @@
 <h2>Edit <%= resource_name.to_s.humanize %></h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |form| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+<%= render "devise/shared/error_messages", resource: resource %>
+<div class="card-body">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm">
+                <div class="field form-group">
+                    <%= form.label :first_name %>
+                    <%= form.text_field :first_name ,autofocus: true,class:"form-control" %>
+                </div>
+            </div>
 
-  <div class="field">
-    <%= form.label :email %><br />
-    <%= form.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+            <div class="col-sm">
+                <div class="field form-group">
+                    <%= form.label :last_name %>
+                    <%= form.text_field :last_name ,class:"form-control" %>
+                </div>
+            </div>
+            <div class="col-sm">
+                <div class="field form-group">
+                    <%= form.label :email %><br />
+                    <%= form.email_field :email, autofocus: true, autocomplete: "email",class:"form-control" %>
+                </div>
+            </div>
 
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-  <% end %>
+            <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+            <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+            <% end %>
+            <!--First name Last name Email row !-->
+            <div class="row">
+                <div class="col-sm col-lg-8">
+                    <div class="field form-group">
+                        <%= form.label :company_id %>
+                        <%= form.select :company_id, Company.all.collect { |c| [ c.name, c.id] }, {include_blank: false}, {class: "form-select"}%>
+                        <%#= collection_select( :company_name, :company_id, Company.all, :id, :name, {:prompt=>true},{:class=>"form-select"})%>
+                        <!--%= form.number_field :company_id ,class:"form-control" %!-->
+                    </div>
+                </div>
+                <div class="col-sm">
+                    <%= form.label :monthly_charge %>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text">$</span>
+                        <%= form.text_field :monthly_charge ,class:"form-control" %>
+                        <span class="input-group-text">.00</span>
+                    </div>
+                </div>
+            </div>
+            <!-- Company list and money charge row !-->
+            <div class="row">
+                <div class="col-sm col-lg-8">
+                    <div class="field form-group">
+                        <%= form.label :role_id %>
+                        <%= form.select :role_id, UserRole.all.collect { |ur| [ ur.role_name,ur.id] }, {include_blank: false }, {class:"form-select"}%>
+                        <%#= collection_select( :role_name, :role_id, UserRole.all, :id, :role_name, {:prompt=>true},{:class=>"form-select"})%>
+                        <!--%= form.number_field :role_id ,class:"form-control" %!-->
+                    </div>
+                </div>
+            </div>
+            <!-- User roles list row!-->
+            <div class="row ">
+                <div class="col-sm col-lg-2">
+                    <%= form.label :start_date %>
+                    <%= form.text_field  :start_date, class: 'flatpickr' %>
+                </div>
+                <div class="col-sm col-lg-1"></div>
+                <div class="col-sm col-lg-2">
+                    <%= form.label :end_date %>
+                    <%= form.text_field  :end_date , class: 'flatpickr' %>
+                </div>
 
-  <div class="field">
-    <%= form.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= form.password_field :password, autocomplete: "new-password" %>
-    <% if @minimum_password_length %>
-      <br />
-      <em><%= @minimum_password_length %> characters minimum</em>
-    <% end %>
-  </div>
-
-  <div class="field">
-    <%= form.label :password_confirmation %><br />
-    <%= form.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= form.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= form.password_field :current_password, autocomplete: "current-password" %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit "Update" %>
-  </div>
+                <div class="col-sm col-lg-2">
+                    <div class="field form-check">
+                        <%= form.check_box :active , class:"form-check-input"  %>
+                        <%= form.label :active, class:"form-check-label" %>
+                    </div>
+                </div>
+            </div>
+            <!-- Start date end date active row!-->
+            <div class="row">
+                <div class="col-sm col-lg-6">
+                    <% if @user.image.attached? %>
+                    <div style="width:180px; height:auto">
+                        <%= image_tag(@user.image, class:"img-thumbnail") %>
+                    </div>
+                    <% end %>
+                    <div class="field form-group">
+                        <!--%= form.label :image %!-->
+                        <%= form.file_field :image ,id:"formfile",class:"form-control"%>
+                    </div>
+                </div>
+            </div>
+            <!-- Image row!-->
+            <div class="row">
+                <div class="field form-group">
+                    <%= form.label :notes %>
+                    <%= form.rich_text_area :notes %>
+                </div>
+            </div>
+            <!--Rich Text area!-->
+            <div class="row">
+                <div class="col-sm col-lg-4">
+                    <div class="field">
+                        <%= form.label :password %> <i>(leave blank if you don't want to change it)</i><br />
+                        <%= form.password_field :password, autocomplete: "new-password",class:"form-control" %>
+                        <% if @minimum_password_length %>
+                        <br />
+                        <em><%= @minimum_password_length %> characters minimum</em>
+                        <% end %>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm col-lg-4">
+                    <div class="field">
+                        <%= form.label :password_confirmation %><br />
+                        <%= form.password_field :password_confirmation, autocomplete: "new-password",class:"form-control" %>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm col-lg-4">
+                    <div class="field">
+                        <%= form.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
+                        <%= form.password_field :current_password, autocomplete: "current-password" ,class:"form-control"%>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="actions">
+                    <%= form.submit "Update" ,class:"btn btn-dark"%>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 <% end %>
 
 <h3>Cancel my account</h3>
 
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete,class:"btn btn-dark"%></p>
 
-<%= link_to "Back", :back %>
+<%= link_to "Back", :back ,class:"btn btn-dark"%>
