@@ -1,18 +1,16 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
-    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <%= link_to " Home ", root_path , class:"navbar-brand bi bi-house"%>
-    </ul>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item ">
+                    <%= link_to " Home ", root_path , class:"navbar-brand bi bi-house"%>
+                </li>
                 <% if user_signed_in?%>
                 <li class="nav-item">
-                    <% if current_user.role_id = 1 %>
                     <%= link_to " Companies ", companies_path , class:"navbar-brand bi bi-building" %>
-                    <%end%>
                 </li>
                 <!--Companies option !-->
                 <li class="nav-item">
@@ -20,6 +18,7 @@
                 </li>
                 <!--Users option !-->
             </ul>
+            <!-- Companies and users!-->
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
                     <%= link_to " User Roles ", user_roles_path , class:"navbar-brand" %>
@@ -44,21 +43,10 @@
                 <li class="nav-item">
                     <%= link_to " Places / Nodes ", places_path , class:"navbar-brand" %>
                 </li>
-
-                <!-- <div class="navbar-brand">
-              <li class="nav-item">
-                <% if current_user.role_id== '1' %>
-                <div class="navbar-brand"> Admin</div>
-                <% elsif current_user.role_id == '2'%>
-                <div class="navbar-brand"> Manager</div>
-                <% elsif current_user.role_id == 3 %>
-                <div class="navbar-brand"> User</div>
-                <%end%>
-              </li>
-            </div> !-->
             </ul>
+            <!-- All other options!-->
             <ul class="navbar-nav">
-                <div class="d-flex flex-row-reverse">
+                <div class="d-flex">
                     <ul class="navbar-nav nav justify-content-end">
                         <li class="nav-item ">
                             <%= link_to " Edit Profile ", edit_user_registration_path , class:"navbar-brand bi bi-person-lines-fill" %>
@@ -68,21 +56,23 @@
                         </li>
                     </ul>
                 </div>
-                <!-- if true show all options with Edit profile and signout !-->
-                <% else %>
-                <ul class="navbar-nav">
-                    <div class="d-flex flex-row-reverse">
+            </ul>
+            <!-- if true show all options with Edit profile and signout !-->
+            <% else %>
+            <ul class="navbar-nav">
+                <div class="d-flex">
+                    <ul class="navbar-nav nav justify-content-end">
                         <li class="nav-item">
                             <%= link_to " Sign up ", new_user_registration_path , class:"navbar-brand bi bi-person-plus" %>
                         </li>
                         <li class="nav-item">
                             <%= link_to " Sign In ",  new_user_session_path , class:"navbar-brand bi bi-box-arrow-in-right" %>
                         </li>
-                    </div>
-                </ul>
-                <% end %>
-                <!-- else Show only home with sign up and sign in!-->
+                    </ul>
+                </div>
             </ul>
+            <% end %>
+            <!-- else Show only home with sign up and sign in!-->
         </div>
     </div>
 </nav>
