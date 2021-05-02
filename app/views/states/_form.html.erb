@@ -18,7 +18,9 @@
 
   <div class="field">
     <%= form.label :country_id %>
-    <%= form.text_field :country_id %>
+     <% countries_array = Country.all.map { |country| [country.name, country.id] } %>
+    <%= form.select :country_id ,options_for_select(countries_array),prompt:"Select Country" %>
+    <%#= form.text_field :country_id %>
   </div>
 
   <div class="actions">
