@@ -14,12 +14,12 @@ Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
 
+require("trix")
+require("@rails/actiontext")
+//stylesheets
+require("../styles/application.scss")
+
 document.addEventListener("turbolinks:load", () => {
     $('[data-tooltip-display="true"]').tooltip(),
         flatpickr("[class='flatpickr']", {})
     })
-require("trix")
-require("@rails/actiontext")
-
-//stylesheets
-require("../styles/application.scss")

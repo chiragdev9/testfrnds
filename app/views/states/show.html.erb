@@ -1,8 +1,13 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>State name:</strong>
-  <%= @state.state_name %>
+  <strong>Name:</strong>
+  <%= @state.name %>
+</p>
+
+<p>
+  <strong>Country:</strong>
+  <%= @state.country_id %>
 </p>
 
 <%= link_to 'Edit', edit_state_path(@state) %> |

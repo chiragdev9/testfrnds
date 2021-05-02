@@ -24,6 +24,7 @@ gem 'jbuilder', '~> 2.7'
 gem 'devise', '~> 4.7', '>= 4.7.3'
 gem 'pundit', '~> 2.1'
 gem 'image_processing', '~> 1.12', '>= 1.12.1'
+gem 'jquery-rails', '~> 4.4'
 gem 'jquery-ui-rails', '~> 6.0', '>= 6.0.1'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
@@ -50,7 +51,16 @@ group :test do
   gem 'selenium-webdriver'
   # Easy installation and use of web drivers to run system tests with browsers
   gem 'webdrivers'
+  gem 'faker', '~> 2.17'
+  gem 'database_cleaner'
+  gem 'factory_bot_rails'
+  gem 'rspec'
+  gem 'rspec-rails', '~> 4.0.1'
+  gem 'shoulda'
+  gem 'shoulda-callback-matchers'
+  gem 'shoulda-matchers'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+gem 'simplecov' ,require: false, group: :test

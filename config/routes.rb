@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
-  devise_for :users
-  resources :user_roles
   resources :cities
   resources :states
+  devise_for :users
+  resources :user_roles
   resources :countries
   resources :regions
   resources :user_regions

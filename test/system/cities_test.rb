@@ -14,7 +14,9 @@ class CitiesTest < ApplicationSystemTestCase
     visit cities_url
     click_on "New City"
 
-    fill_in "City name", with: @city.city_name
+    fill_in "Country", with: @city.country_id
+    fill_in "Name", with: @city.name
+    fill_in "State", with: @city.state_id
     click_on "Create City"
 
     assert_text "City was successfully created"
@@ -25,7 +27,9 @@ class CitiesTest < ApplicationSystemTestCase
     visit cities_url
     click_on "Edit", match: :first
 
-    fill_in "City name", with: @city.city_name
+    fill_in "Country", with: @city.country_id
+    fill_in "Name", with: @city.name
+    fill_in "State", with: @city.state_id
     click_on "Update City"
 
     assert_text "City was successfully updated"
