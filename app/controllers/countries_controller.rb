@@ -64,6 +64,6 @@ class CountriesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def country_params
-      params.require(:country).permit(:country_name)
+      params.require(:country).permit(:name)
     end
 end
