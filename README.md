@@ -24,3 +24,5 @@ Things you may want to cover:
 * update from feature B
 
 * update 2 from feature B 
+
+* update 3 feat B
