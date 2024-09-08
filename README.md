@@ -26,3 +26,8 @@ Things you may want to cover:
 * Some more update from feature a
 
 * update 3 from feat A
+* update from feature B
+
+* update 2 from feature B 
+
+* update 3 feat B
